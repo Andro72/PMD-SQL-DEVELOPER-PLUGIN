@@ -1,0 +1,24 @@
+<context scope="global">
+	<preset name="Default">
+		<map action="PmdTool.test">
+			<accel>alt shift T</accel>
+		</map>
+		<map action="PmdTool.coverage">
+			<accel>alt shift O</accel>
+		</map>
+		<map action="PmdTool.generate">
+			<accel>alt shift G</accel>
+		</map>
+	</preset>
+	<preset name="Default MacOS X">
+		<map action="PmdTool.test">
+			<accel>alt shift T</accel>
+		</map>
+		<map action="PmdTool.coverage">
+			<accel>alt shift O</accel>
+		</map>
+		<map action="PmdTool.generate">
+			<accel>alt shift G</accel>
+		</map>
+	</preset>
+</context>

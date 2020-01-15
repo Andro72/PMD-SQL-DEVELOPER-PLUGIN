@@ -1,0 +1,74 @@
+<extension id="pmd.sql.developer" version="#EXTENSION_VERSION#"
+	esdk-version="2.0" xmlns="http://jcp.org/jsr/198/extension-manifest"
+	rsbundle-class="pmd.sql.developer.resources.PmdToolResources">
+	<name rskey="EXTENSION_NAME" />
+	<owner rskey="EXTENSION_OWNER" />
+
+	<feature id="pmd.sql.developer" xmlns="http://xmlns.oracle.com/ide/extension">
+		<category-id>db-category</category-id>
+		<name>#EXTENSION_NAME#</name>
+		<description><![CDATA[#EXTENSION_DESCRIPTION#]]></description>
+		<type>
+			<service can-user-disable="true" reload-if-used="true" />
+		</type>
+	</feature>
+
+	<trigger-hooks xmlns="http://xmlns.oracle.com/ide/extension">
+		
+		<triggers>
+
+			<actions xmlns="http://xmlns.oracle.com/jdeveloper/1013/extension">
+<!--				<action id="PmdTool.test">-->
+<!--					<properties>-->
+<!--						<property name="Name">${MENU_RUN_TEST_LABEL}</property>-->
+<!--						<property name="SmallIcon">res:/pmd/sql/developer/resources/images/PmdTool.png</property>-->
+<!--						<property name="Category">Code-Editor</property>-->
+<!--					</properties>-->
+<!--				</action>-->
+				<action id="PmdTool.coverage">
+					<properties>
+						<property name="Name">PMD Run</property>
+						<property name="SmallIcon">res:/pmd/sql/developer/resources/images/coverage.png</property>
+						<property name="Category">Code-Editor</property>
+					</properties>
+				</action>
+<!--				<action id="PmdTool.generate">-->
+<!--					<properties>-->
+<!--						<property name="Name">${MENU_GENERATE_TEST_LABEL}</property>-->
+<!--						<property name="SmallIcon">res:/pmd/sql/developer/resources/images/oddgen.png</property>-->
+<!--						<property name="Category">Code-Editor</property>-->
+<!--					</properties>-->
+<!--				</action>-->
+			</actions>
+			<controllers xmlns="http://xmlns.oracle.com/ide/extension">
+				<controller class="pmd.sql.developer.menu.PmdToolController">
+					<update-rules>
+						<update-rule rule="always-enabled">
+<!--							<action id="PmdTool.test" />-->
+							<action id="PmdTool.coverage" />
+<!--							<action id="PmdTool.generate" />-->
+						</update-rule>
+					</update-rules>
+				</controller>
+			</controllers>
+			<context-menu-hook rule="always-enabled">
+				<site idref="editor" />
+				<menu>
+					<section xmlns="http://jcp.org/jsr/198/extension-manifest"
+						id="PmdTool_MENU" weight="2.0">
+<!--						<item action-ref="PmdTool.test" weight="1.0" />-->
+						<item action-ref="PmdTool.coverage" weight="1.0" />
+<!--						<item action-ref="PmdTool.generate" weight="1.2" />-->
+					</section>
+				</menu>
+			</context-menu-hook>
+			
+			<accelerator-hook>
+				<file>pmd/sql/developer/resources/accelerators.xml</file>
+			</accelerator-hook>
+			
+		</triggers>
+	</trigger-hooks>
+
+
+</extension>
